@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width">
+    	<title>lab3</title>
+	</head>
+	<body>
+		<script>
+// 			let get_square = (num) => {
+// 				return num*num;
+// 			}
+			
+// 			document.body.innerText = (get_square(5));
+			
+			// TODO: fetch items properly from json file i.e. the title, hdurl, and explanation
+			
+			fetch ("https://api.nasa.gov/planetary/apod?api_key=ih0oRyJ9MMWofFV1gpNO2gqwvSTeGJvfPVeBkbJi")
+			.then ( (response) => {
+				
+				// h1 element
+				let myH1 = document.createElement("h1");
+				myH1.innerText = "title";
+				document.querySelector("#div1").appendChild(myH1);
+				
+				// image element
+				let myImg = document.createElement("IMG");
+				myImg.src = "https://apod.nasa.gov/apod/image/2101/SouthernCross_Slovinsky_3000.jpg";
+				document.querySelector("#div1").appendChild(myImg);
+				
+				// paragraph element
+				let myP = document.createElement("P");
+				myP.innerText = "explanation";
+				document.querySelector("#div1").appendChild(myP);
+			})
+		</script>
+		<noscript>Sorry, your browser does not support JavaScript!</noscript>
+		
+		<div id="div1">
+			<p>Lab 3</p>
+		</div>
+	</body>
+</html>
+
