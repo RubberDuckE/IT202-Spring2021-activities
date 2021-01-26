@@ -8,30 +8,32 @@
 	</head>
 	<body>
 		<script>
-// 			let get_square = (num) => {
-// 				return num*num;
-// 			}
 			
-// 			document.body.innerText = (get_square(5));
-			
-			// TODO: fetch items properly from json file i.e. the title, hdurl, and explanation
+			// use fetch to receive the API data
+			// parse the "response" we receive using .json()
+			// in json(), create the elements required and store the
+			// information from the object "json" into each element
 			
 			fetch ("https://api.nasa.gov/planetary/apod?api_key=ih0oRyJ9MMWofFV1gpNO2gqwvSTeGJvfPVeBkbJi")
 			.then ( (response) => {
+				return response.json();
+			})
+			.then ( (json) => {
+				console.log(json);
 				
 				// h1 element
-				let myH1 = document.createElement("h1");
-				myH1.innerText = "title";
+				var myH1 = document.createElement("h1");
+				myH1.innerText = json.title;
 				document.querySelector("#div1").appendChild(myH1);
 				
 				// image element
-				let myImg = document.createElement("IMG");
-				myImg.src = "https://apod.nasa.gov/apod/image/2101/SouthernCross_Slovinsky_3000.jpg";
+				var myImg = document.createElement("IMG");
+				myImg.src = json.hdurl;
 				document.querySelector("#div1").appendChild(myImg);
 				
 				// paragraph element
-				let myP = document.createElement("P");
-				myP.innerText = "explanation";
+				var myP = document.createElement("P");
+				myP.innerText = json.explanation;
 				document.querySelector("#div1").appendChild(myP);
 			})
 		</script>
