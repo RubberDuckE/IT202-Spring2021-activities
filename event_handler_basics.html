@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Event Handler Basics</title>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+    <style>
+      .bigger {width:400px; height:600px;}
+      blockquote {font-family: "Architects Daughter", Arial; font-size: 2em; }
+    </style>
+
+  </head>
+  <body>
+
+    <div id="images">
+      <img id="imgA" src="https://picsum.photos/seed/a/200/300" alt="random image">
+      <img id="imgB" src="https://picsum.photos/seed/b/200/300" alt="random image">
+      <img id="imgC" src="https://picsum.photos/seed/c/200/300" alt="random image">
+    </div>
+
+    <blockquote id="quote" cite="https://quoteinvestigator.com/2014/05/27/rising/">
+      "The greatest glory in living lies not in never falling, but in rising every time we fall." -Nelson Mandela (and others)
+    </blockquote>
+
+    <script>
+		// variables to store the images and the quote so it's easy to access them
+		var imgA = document.getElementById("imgA");
+		var imgB = document.getElementById("imgB");
+		var imgC = document.getElementById("imgC");
+		var myQuote = document.getElementById("quote");
+		
+		
+		// adding the reqd event listeners
+		
+		// for imgA
+		imgA.addEventListener("mouseover", () => {
+			imgA.classList.add("bigger");
+		});
+		imgA.addEventListener("mouseout", () => {
+			imgA.classList.remove("bigger");
+		});
+		
+		// for imgB
+		imgB.addEventListener("mouseover", () => {
+			imgB.classList.add("bigger");
+		});
+		imgB.addEventListener("mouseout", () => {
+			imgB.classList.remove("bigger");
+		});
+		
+		// for imgC
+		imgC.addEventListener("mouseover", () => {
+			imgC.classList.add("bigger");
+		});
+		imgC.addEventListener("mouseout", () => {
+			imgC.classList.remove("bigger");
+		});
+		
+		
+		// adding link open functionality for the quote
+		myQuote.addEventListener("click", () => {
+			window.open(myQuote.getAttribute("cite"));
+		});
+    </script>
+
+
+  </body>
+</html>
